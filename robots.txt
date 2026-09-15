@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /style-guide.html
+
+Sitemap: https://km321.github.io/melton-sample-air-solutions/sitemap.xml

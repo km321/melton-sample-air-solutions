@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air Solutions, LLC - Style Guide (Phase 3)</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#F7F5F2',
+            'stone-50': '#F7F5F2',
+            charcoal: '#1C1917',
+            muted: '#57534E',
+            line: '#D6D3D1',
+            steel: '#3F4E5A',
+            signal: '#D97706',
+            'signal-dark': '#B45309',
+            forest: '#3F6212',
+          },
+          fontFamily: {
+            display: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+            body: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background-color: #F7F5F2;
+      color: #1C1917;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      text-wrap: balance;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeUp 0.45s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn-primary {
+      background-color: #D97706;
+      color: #fff;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #B45309;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+    }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:focus-visible {
+      outline: 2px solid #B45309;
+      outline-offset: 2px;
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: #1C1917;
+      border: 1.5px solid #D6D3D1;
+      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-ghost:hover {
+      border-color: #3F4E5A;
+      background-color: #fff;
+      color: #3F4E5A;
+    }
+    .btn-ghost:focus-visible {
+      outline: 2px solid #3F4E5A;
+      outline-offset: 2px;
+    }
+    .btn-steel {
+      background-color: #3F4E5A;
+      color: #fff;
+      transition: background-color 0.2s ease;
+    }
+    .btn-steel:hover { background-color: #2F3B45; }
+    .field {
+      border: 1.5px solid #D6D3D1;
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .field:focus {
+      outline: none;
+      border-color: #3F4E5A;
+      box-shadow: 0 0 0 3px rgba(63, 78, 90, 0.15);
+    }
+    .swatch {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(28, 25, 23, 0.08);
+    }
+    .card-demo {
+      transition: box-shadow 0.25s ease, transform 0.2s ease;
+    }
+    .card-demo:hover {
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.08);
+      transform: translateY(-2px);
+    }
+    .sticky-demo {
+      min-height: 48px;
+    }
+    .space-bar {
+      background: repeating-linear-gradient(
+        90deg,
+        #3F4E5A 0,
+        #3F4E5A 1px,
+        transparent 1px,
+        transparent 8px
+      );
+    }
+  </style>
+</head>
+<body class="bg-canvas text-charcoal antialiased">
+
+  <!-- Melton sample ribbon -->
+  <div class="bg-steel text-white text-center text-xs sm:text-sm font-body font-semibold tracking-wide py-2 px-4">
+    SAMPLE · Melton Launch · Air Solutions, LLC · Phase 3 style guide · Not live production
+  </div>
+
+  <!-- 1. Header with dials -->
+  <header class="border-b border-line bg-white">
+    <div class="max-w-5xl mx-auto px-5 py-10 sm:py-12 fade-in">
+      <p class="text-sm font-semibold uppercase tracking-wider text-steel mb-3">Air Solutions, LLC</p>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal leading-tight mb-4">
+        Style guide
+      </h1>
+      <p class="text-muted text-base sm:text-lg max-w-2xl mb-8 leading-relaxed">
+        Warm utility tokens for a repair-first, Call-first local HVAC site.
+        Locked strategy: <strong class="text-charcoal">A+B hybrid</strong> (Repair First + Call-first UI), photo-supported.
+        CSS hover and fade only. No GSAP.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="rounded-lg border border-line bg-canvas p-4">
+          <p class="text-xs uppercase tracking-wider text-muted mb-1">DESIGN_VARIANCE</p>
+          <p class="font-display text-3xl font-bold text-charcoal">4</p>
+          <p class="text-sm text-muted mt-2 leading-snug">Familiar HVAC conventions with repair-first character. Not experimental.</p>
+        </div>
+        <div class="rounded-lg border border-line bg-canvas p-4">
+          <p class="text-xs uppercase tracking-wider text-muted mb-1">MOTION_INTENSITY</p>
+          <p class="font-display text-3xl font-bold text-charcoal">3</p>
+          <p class="text-sm text-muted mt-2 leading-snug">Subtle fade and strong Call hover only. Motion never competes with tap-to-call.</p>
+        </div>
+        <div class="rounded-lg border border-line bg-canvas p-4">
+          <p class="text-xs uppercase tracking-wider text-muted mb-1">VISUAL_DENSITY</p>
+          <p class="font-display text-3xl font-bold text-charcoal">5</p>
+          <p class="text-sm text-muted mt-2 leading-snug">One clear idea per band. Readable trust. Room for photo proof without burying the phone.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-5 py-12 space-y-16">
+
+    <!-- 2. Color swatches -->
+    <section class="fade-in" style="animation-delay: 0.05s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Color</h2>
+      <p class="text-muted mb-6 max-w-2xl">Warm utility. Amber signal Call beats corporate-blue SERP. Steel for structure, not franchise blue.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#F7F5F2"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">stone-50 / canvas</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#F7F5F2</p>
+            <p class="text-xs text-muted mt-1">Page canvas</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20 bg-white border-b border-line"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">white</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#FFFFFF</p>
+            <p class="text-xs text-muted mt-1">Cards, forms, surfaces</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#1C1917"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">charcoal</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#1C1917</p>
+            <p class="text-xs text-muted mt-1">Headlines, body ink</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#57534E"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">muted</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#57534E</p>
+            <p class="text-xs text-muted mt-1">Secondary text</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#D6D3D1"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">line</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#D6D3D1</p>
+            <p class="text-xs text-muted mt-1">Borders, dividers</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#3F4E5A"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">steel</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#3F4E5A</p>
+            <p class="text-xs text-muted mt-1">Nav accents, icons, chrome</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#D97706"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">signal</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#D97706</p>
+            <p class="text-xs text-muted mt-1">Call CTA, sticky bar</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#B45309"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">signal-dark</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#B45309</p>
+            <p class="text-xs text-muted mt-1">Call hover / active</p>
+          </div>
+        </div>
+        <div class="swatch rounded-lg border border-line overflow-hidden bg-white">
+          <div class="h-20" style="background:#3F6212"></div>
+          <div class="p-3">
+            <p class="font-display font-semibold text-sm">forest</p>
+            <p class="font-mono text-xs text-muted mt-0.5">#3F6212</p>
+            <p class="text-xs text-muted mt-1">Form success only</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Typography scale -->
+    <section class="fade-in" style="animation-delay: 0.1s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Typography</h2>
+      <p class="text-muted mb-6 max-w-2xl">IBM Plex Sans for display. Source Sans 3 for body and UI. Mobile-first. Headings use text-wrap: balance.</p>
+      <div class="rounded-xl border border-line bg-white p-6 sm:p-8 space-y-6">
+        <div>
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">H1 · IBM Plex Sans 700 · text-4xl / text-5xl</p>
+          <h1 class="text-4xl sm:text-5xl font-display font-bold leading-tight">AC down? We repair first.</h1>
+        </div>
+        <div class="border-t border-line pt-6">
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">H2 · IBM Plex Sans 700 · text-2xl / text-3xl</p>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold leading-tight">Same-day service across the Upstate</h2>
+        </div>
+        <div class="border-t border-line pt-6">
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">H3 · IBM Plex Sans 600 · text-xl</p>
+          <h3 class="text-xl font-display font-semibold leading-snug">Emergency repair · Install · Preventative maintenance</h3>
+        </div>
+        <div class="border-t border-line pt-6">
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">Body · Source Sans 3 400 · text-base</p>
+          <p class="text-base text-charcoal leading-relaxed max-w-prose">
+            Honest local HVAC. Clear Call-first paths for repair panic, and a Free estimate form when the job is install or maintenance planning.
+          </p>
+        </div>
+        <div class="border-t border-line pt-6">
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">Muted · Source Sans 3 · text-sm</p>
+          <p class="text-sm text-muted leading-relaxed">Serving Spartanburg and nearby Upstate communities. [SAMPLE] Licensing claims placeholder (sample, not a public site claim). SAMPLE placeholders labeled when used.</p>
+        </div>
+        <div class="border-t border-line pt-6">
+          <p class="text-xs uppercase tracking-wider text-muted mb-2">Phone digits · tabular / display</p>
+          <p class="font-display font-semibold text-lg tracking-wide tabular-nums">(864) 948-9026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Spacing examples -->
+    <section class="fade-in" style="animation-delay: 0.12s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Spacing</h2>
+      <p class="text-muted mb-6 max-w-2xl">Density dial 5: standard local-operator rhythm. One idea per band. Comfortable card padding without luxury whitespace.</p>
+      <div class="rounded-xl border border-line bg-white p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">4 / 8px</span>
+          <div class="h-2 rounded bg-steel/20" style="width:8px"></div>
+          <span class="text-xs text-muted">Tight icon gaps</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">16px</span>
+          <div class="h-2 rounded bg-steel/30" style="width:16px"></div>
+          <span class="text-xs text-muted">Inline control spacing</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">24px</span>
+          <div class="h-2 rounded bg-steel/40" style="width:24px"></div>
+          <span class="text-xs text-muted">Card internal padding (p-6)</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">32px</span>
+          <div class="h-2 rounded bg-steel/50" style="width:32px"></div>
+          <span class="text-xs text-muted">Card grid gap</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">48px</span>
+          <div class="h-2 rounded bg-steel/60" style="width:48px"></div>
+          <span class="text-xs text-muted">Section stack (space-y-12)</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="w-16 text-xs font-mono text-muted shrink-0">64px</span>
+          <div class="h-2 rounded bg-steel/80" style="width:64px"></div>
+          <span class="text-xs text-muted">Major section bands (py-16)</span>
+        </div>
+        <div class="mt-4 rounded-lg border border-dashed border-line bg-canvas p-6">
+          <p class="text-sm text-muted mb-3">Example card padding (p-6 = 24px)</p>
+          <div class="bg-white border border-line rounded-lg p-6">
+            <p class="font-display font-semibold">Service card content</p>
+            <p class="text-sm text-muted mt-1">Short title + two-line body max.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Buttons -->
+    <section class="fade-in" style="animation-delay: 0.14s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Buttons</h2>
+      <p class="text-muted mb-6 max-w-2xl">Primary Call always uses signal fill (never outline-only). Secondary Free estimate is ghost. Hover states shown below.</p>
+      <div class="rounded-xl border border-line bg-white p-6 sm:p-8">
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+          <a href="tel:+18649489026" class="btn-primary inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            Call (864) 948-9026
+          </a>
+          <a href="#estimate" class="btn-ghost inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+            Free estimate
+          </a>
+          <button type="button" class="btn-steel inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            Service area
+          </button>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 text-sm">
+          <div class="rounded-lg bg-canvas border border-line p-4">
+            <p class="font-display font-semibold mb-2">Primary (signal)</p>
+            <ul class="space-y-1 text-muted">
+              <li>Default: #D97706 fill, white text</li>
+              <li>Hover: #B45309 + soft amber shadow</li>
+              <li>Active: slight scale down</li>
+              <li>Focus: signal-dark ring</li>
+              <li>Min tap height: 44px</li>
+            </ul>
+          </div>
+          <div class="rounded-lg bg-canvas border border-line p-4">
+            <p class="font-display font-semibold mb-2">Secondary (ghost)</p>
+            <ul class="space-y-1 text-muted">
+              <li>Default: transparent + line border</li>
+              <li>Hover: steel border + white fill</li>
+              <li>Use for Free estimate only</li>
+              <li>Never replace sticky Call</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Sticky tap-to-call bar -->
+    <section class="fade-in" style="animation-delay: 0.16s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Sticky tap-to-call bar</h2>
+      <p class="text-muted mb-6 max-w-2xl">Mobile and desktop. tel:+18649489026. Label Call (864) 948-9026. Signal fill. Matches nav CTA color.</p>
+      <div class="rounded-xl border border-line bg-white overflow-hidden">
+        <div class="bg-canvas px-4 py-8 text-center text-sm text-muted border-b border-line">
+          Page content sits above. Bar pins to bottom on live pages.
+        </div>
+        <a href="tel:+18649489026" class="sticky-demo btn-primary flex items-center justify-center gap-2 w-full px-4 py-3.5 text-base sm:text-lg font-semibold font-display tracking-wide">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          Call (864) 948-9026
+        </a>
+      </div>
+      <p class="text-xs text-muted mt-3">Href: tel:+18649489026 · Mid-page Call bands use the same signal fill.</p>
+    </section>
+
+    <!-- 7. Form fields -->
+    <section id="estimate" class="fade-in" style="animation-delay: 0.18s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Form fields</h2>
+      <p class="text-muted mb-6 max-w-2xl">Estimate form pattern. Used on install / PM paths. Forest reserved for success confirmation only.</p>
+      <div class="rounded-xl border border-line bg-white p-6 sm:p-8 max-w-lg">
+        <h3 class="font-display font-semibold text-xl mb-1">Request a free estimate</h3>
+        <p class="text-sm text-muted mb-6">Install, replacement, or maintenance plan. We will call you back.</p>
+        <form class="space-y-4" onsubmit="return false;">
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="name">Name</label>
+            <input id="name" type="text" class="field w-full rounded-lg px-3 py-2.5 text-base" placeholder="Your name" autocomplete="name" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="phone">Phone</label>
+            <input id="phone" type="tel" class="field w-full rounded-lg px-3 py-2.5 text-base" placeholder="(864) 555-0100" autocomplete="tel" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="email">Email</label>
+            <input id="email" type="email" class="field w-full rounded-lg px-3 py-2.5 text-base" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="service">Service needed</label>
+            <select id="service" class="field w-full rounded-lg px-3 py-2.5 text-base">
+              <option>New install / replacement</option>
+              <option>Preventative maintenance</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1.5" for="notes">Notes (optional)</label>
+            <textarea id="notes" rows="3" class="field w-full rounded-lg px-3 py-2.5 text-base resize-y" placeholder="System age, address area, preferred time"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+            Send estimate request
+          </button>
+          <p class="text-xs text-muted text-center">Prefer to talk now? <a href="tel:+18649489026" class="text-signal font-semibold hover:text-signal-dark underline-offset-2 hover:underline">Call (864) 948-9026</a></p>
+        </form>
+        <div class="mt-6 rounded-lg border border-forest/30 bg-forest/5 p-3 flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-5 h-5 text-forest shrink-0 mt-0.5"></i>
+          <p class="text-sm text-forest font-medium">Success state sample: Thanks. We got your request and will call soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Cards -->
+    <section class="fade-in" style="animation-delay: 0.2s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Cards</h2>
+      <p class="text-muted mb-6 max-w-2xl">Repair cards bias Call. Install / PM cards allow the form. Trust card uses public-fact bullets only.</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Repair card: Call-biased -->
+        <article class="card-demo rounded-xl border border-line bg-white p-6 flex flex-col">
+          <div class="w-10 h-10 rounded-lg bg-signal/10 text-signal flex items-center justify-center mb-4">
+            <i data-lucide="wrench" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Emergency repair</h3>
+          <p class="text-sm text-muted leading-relaxed mb-5 flex-1">AC or heat not working? Call first. We diagnose and repair before pushing a replacement.</p>
+          <a href="tel:+18649489026" class="btn-primary inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold min-h-[44px] w-full">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            Call now
+          </a>
+          <p class="text-[11px] uppercase tracking-wider text-muted mt-3 text-center">Call-biased path</p>
+        </article>
+
+        <!-- Install / PM card: form-biased -->
+        <article class="card-demo rounded-xl border border-line bg-white p-6 flex flex-col">
+          <div class="w-10 h-10 rounded-lg bg-steel/10 text-steel flex items-center justify-center mb-4">
+            <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2">Install &amp; maintenance</h3>
+          <p class="text-sm text-muted leading-relaxed mb-5 flex-1">New system or seasonal tune-up. Request a free estimate and we will follow up with options.</p>
+          <a href="#estimate" class="btn-ghost inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold min-h-[44px] w-full">
+            Free estimate
+          </a>
+          <p class="text-[11px] uppercase tracking-wider text-muted mt-3 text-center">Form-biased path</p>
+        </article>
+
+        <!-- Trust card -->
+        <article class="card-demo rounded-xl border border-line bg-white p-6 flex flex-col">
+          <div class="w-10 h-10 rounded-lg bg-steel/10 text-steel flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-3">Why call Air Solutions</h3>
+          <ul class="space-y-2.5 text-sm text-muted flex-1 mb-4">
+            <li class="flex gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-forest shrink-0 mt-0.5"></i>
+              <span>Local Upstate operator · Spartanburg area</span>
+            </li>
+            <li class="flex gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-forest shrink-0 mt-0.5"></i>
+              <span>Repair-first approach (not replacement push)</span>
+            </li>
+            <li class="flex gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-forest shrink-0 mt-0.5"></i>
+              <span>Direct phone: (864) 948-9026</span>
+            </li>
+            <li class="flex gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-forest shrink-0 mt-0.5"></i>
+              <span>SAMPLE: license / insurance details as verified</span>
+            </li>
+          </ul>
+          <p class="text-[11px] uppercase tracking-wider text-muted text-center">Public-fact trust stack</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9. Mini-hero -->
+    <section class="fade-in" style="animation-delay: 0.22s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Mini-hero</h2>
+      <p class="text-muted mb-6 max-w-2xl">Call primary. Free estimate secondary. Photo-supported or solid canvas fallback with big type.</p>
+      <div class="rounded-xl border border-line overflow-hidden bg-white">
+        <div class="grid md:grid-cols-2">
+          <div class="p-8 sm:p-10 flex flex-col justify-center bg-canvas">
+            <p class="text-xs font-semibold uppercase tracking-wider text-steel mb-3">Air Solutions, LLC</p>
+            <h2 class="text-3xl sm:text-4xl font-display font-bold leading-tight mb-4">
+              Broken AC? Call. We repair first.
+            </h2>
+            <p class="text-muted mb-6 leading-relaxed">
+              Same-day help for Spartanburg and the Upstate. Honest diagnosis. Clear next steps.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="tel:+18649489026" class="btn-primary inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                Call (864) 948-9026
+              </a>
+              <a href="#estimate" class="btn-ghost inline-flex items-center gap-2 rounded-lg px-5 py-3 text-base font-semibold min-h-[44px]">
+                Free estimate
+              </a>
+            </div>
+          </div>
+          <div class="min-h-[220px] md:min-h-full bg-steel/90 flex items-center justify-center p-8 relative">
+            <div class="absolute inset-0 opacity-20" style="background: linear-gradient(135deg, #3F4E5A 0%, #1C1917 100%);"></div>
+            <div class="relative text-center text-white/90 px-4">
+              <i data-lucide="image" class="w-10 h-10 mx-auto mb-3 opacity-80"></i>
+              <p class="font-display font-semibold text-sm">Photo-supported slot</p>
+              <p class="text-xs mt-1 text-white/70">Real crew / van / equipment crop. Warm grade OK. Solid steel fallback when inventory is thin.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Footer pattern -->
+    <section class="fade-in" style="animation-delay: 0.24s">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold mb-2">Footer pattern</h2>
+      <p class="text-muted mb-6 max-w-2xl">NAP, Call CTA, and affiliation disclaimer. Not a Childers brand echo.</p>
+      <footer class="rounded-xl border border-line bg-white overflow-hidden">
+        <div class="p-8 sm:p-10 grid sm:grid-cols-2 gap-8">
+          <div>
+            <p class="font-display font-bold text-lg mb-2">Air Solutions, LLC</p>
+            <p class="text-sm text-muted leading-relaxed mb-4">
+              Spartanburg, SC and surrounding Upstate communities.<br />
+              SAMPLE address line pending NAP lock.
+            </p>
+            <a href="tel:+18649489026" class="inline-flex items-center gap-2 text-signal font-semibold hover:text-signal-dark transition-colors">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              (864) 948-9026
+            </a>
+          </div>
+          <div class="sm:text-right">
+            <a href="tel:+18649489026" class="btn-primary inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold min-h-[44px]">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Call now
+            </a>
+            <p class="text-xs text-muted mt-4">Nav CTA and sticky bar share this signal fill.</p>
+          </div>
+        </div>
+        <div class="border-t border-line bg-canvas px-8 py-4">
+          <p class="text-xs text-muted leading-relaxed">
+            Air Solutions, LLC is an independent local HVAC company and is not affiliated with Childers Heating and Air Conditioning.
+          </p>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <div class="border-t border-line bg-white py-6 text-center">
+    <p class="text-xs text-muted">Phase 3 · DESIGN_VARIANCE 4 · MOTION_INTENSITY 3 · VISUAL_DENSITY 5 · signal amber Call · no GSAP</p>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
